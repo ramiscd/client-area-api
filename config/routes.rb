@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/users", to: "users#index"
   # resources :products
 
+  get "/applications", to: "applications#index"
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
