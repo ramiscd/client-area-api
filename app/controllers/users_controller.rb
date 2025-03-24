@@ -9,8 +9,6 @@ class UsersController < ApplicationController
     @user = User.create(create_params)
   end
 
-
-
   private
 
   def create_params

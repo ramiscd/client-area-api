@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   # resources :products
 
   get "/applications", to: "applications#index"
+  post "/applications", to: "applications#create"
+
+  get "/forms", to: "forms#index"
+  post "/forms", to: "forms#create"
 
   # Defines the root path route ("/")
   # root "posts#index"
