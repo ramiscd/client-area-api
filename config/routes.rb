@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get "/forms", to: "forms#index"
   post "/forms", to: "forms#create"
 
+
+  get "/statuses", to: "statuses#index"
   # Defines the root path route ("/")
   # root "posts#index"
 end
