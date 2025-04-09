@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
 
   get "/statuses", to: "statuses#index"
+  post "/statuses", to: "statuses#create"
   # Defines the root path route ("/")
   # root "posts#index"
 end
