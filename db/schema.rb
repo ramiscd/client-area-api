@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_05_174913) do
-  create_table "applicants_status_histories", force: :cascade do |t|
-    t.integer "application_id", null: false
-    t.integer "status_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["application_id"], name: "index_applicants_status_histories_on_application_id"
-    t.index ["status_id"], name: "index_applicants_status_histories_on_status_id"
-  end
-
+ActiveRecord::Schema[7.1].define(version: 2025_04_12_125629) do
   create_table "applications", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "form_id", null: false
@@ -40,6 +31,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_05_174913) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "status_changes", force: :cascade do |t|
+    t.integer "application_id", null: false
+    t.integer "status_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["application_id"], name: "index_status_changes_on_application_id"
+    t.index ["status_id"], name: "index_status_changes_on_status_id"
+  end
+
   create_table "statuses", force: :cascade do |t|
     t.string "name"
     t.integer "application_id", null: false
@@ -56,9 +56,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_05_174913) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "applicants_status_histories", "applications"
-  add_foreign_key "applicants_status_histories", "statuses"
   add_foreign_key "applications", "forms"
   add_foreign_key "applications", "users"
+  add_foreign_key "status_changes", "applications"
+  add_foreign_key "status_changes", "statuses"
   add_foreign_key "statuses", "applications"
 end
