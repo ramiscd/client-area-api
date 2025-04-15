@@ -1,4 +1,4 @@
-class StatusChanges < ApplicationController
+class StatusChangesController < ApplicationController
   def index
     @status_changes = StatusChange.all
   end
