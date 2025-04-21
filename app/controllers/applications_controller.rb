@@ -4,6 +4,10 @@ class ApplicationsController < ApplicationController
     @applications = Application.all
   end
 
+  def show
+    @application = Application.find(params[:id])
+  end
+
   def create
     @application = Application.create(create_params)
   end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # resources :products
 
   get "/applications", to: "applications#index"
+  get "/applications/:id", to: "applications#show" 
   post "/applications", to: "applications#create"
 
   get "/forms", to: "forms#index"
