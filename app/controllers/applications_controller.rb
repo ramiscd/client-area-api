@@ -5,7 +5,7 @@ class ApplicationsController < ApplicationController
   end
 
   def show
-    @application = Application.find(params[:id])
+    @application = Application.includes(:user, :form, :statuses).find(params[:id])
   end
 
   def create

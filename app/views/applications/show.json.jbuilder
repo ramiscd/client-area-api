@@ -13,3 +13,9 @@ json.form do
   json.payment @application.form.payment
   json.form_type @application.form.form_type
 end
+json.statuses @application.statuses do |status|
+  json.id status.id
+  json.name status.name
+  json.created_at status.created_at
+  json.updated_at status.updated_at
+end
